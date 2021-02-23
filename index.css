@@ -4,6 +4,10 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
 }
@@ -43,13 +47,51 @@ a {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 1.5rem 1.5rem;
     background-color: green;
+}
+
+.project-tile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-tile img {
+    width: 40rem;
+    height: 20rem;
+}
+
+figcaption {
+    text-align: center;
+    background-color: red;
+    padding: 1rem 1rem;
+    margin-top: -4px;
 }
 
 #contact-section {
     background-color: yellow;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+}
+
+#contact-section p {
+    margin-right: 1rem;
+}
+
+#contact-links {
+    display: flex;
+}
+
+i {
+    margin-right: .3rem;
 }
 
 footer {
     background-color: purple;
+    display: flex;
+    justify-content: center;
 }
