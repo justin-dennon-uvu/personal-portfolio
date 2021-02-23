@@ -1,15 +1,9 @@
 :root {
-    --main-green: #43E97B;
-    --dark-purple: #9C3D93;
-    --light-purple: #E84FDA;
-    --dark-brown: #9C461E;
-    --light-brown: #E87038;
-}
-
-@media (max-width: 75em) {
-    html {
-        background-color: yellow;
-    }
+    --purple: #802BB1;
+    --black-purple: #2D283E;
+    --gray-purple: #564F6F;
+    --gray: #4C495D;
+    --light-gray: #D1D7E0;
 }
 
 html {
@@ -18,18 +12,25 @@ html {
     font-family: 'Cabin', sans-serif;
 }
 
+@media (max-width: 768px) {
+    html {
+        color: black;
+    }
+}
+
 body {
     margin: 0;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: var(--light-gray);
 }
 
 h1 {
     font-size: 5rem;
     margin-bottom: 0;
+    color: var(--purple)
 }
 
 #welcome-section h3 {
@@ -39,6 +40,7 @@ h1 {
 
 h3 {
     font-weight: lighter;
+    color: var(--light-gray)
 }
 
 #navbar {
@@ -46,7 +48,7 @@ h3 {
     justify-content: flex-end;
     position: fixed;
     width: 100%;
-    background-color: var(--dark-purple);
+    background-color: var(--purple);
 }
 
 #navbar ul {
@@ -58,13 +60,17 @@ h3 {
     list-style: none;
 }
 
+.nav-list:hover {
+    text-decoration: underline;
+}
+
 #welcome-section {
     height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(to bottom, #43e97b 0%, #38f9d7 100%);
+    background-color: var(--black-purple);
 }
 
 #projects {
@@ -72,11 +78,19 @@ h3 {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 1.5rem;
-    background-color: var(--dark-purple)
+    padding: 3rem 3rem;
+    background-color: var(--gray)
+}
+
+#projects h3 {
+    margin: 0;
+    font-size: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.2rem solid var(--light-gray);
 }
 
 .project-tile {
+    padding: 5rem 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -87,15 +101,23 @@ h3 {
     height: 20rem;
 }
 
+.grow {
+    transition: all .2s ease-in-out
+}
+
+.grow:hover {
+    transform: scale(1.1);
+}
+
 figcaption {
     text-align: center;
-    background-color: var(--light-brown);
+    background-color: var(--black-purple);
     padding: 1rem 1rem;
     margin-top: -5px;
 }
 
 #contact-section {
-    background-color: var(--main-green);
+    background-color: var(--gray-purple);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -103,8 +125,18 @@ figcaption {
     height: 80vh;
 }
 
+#contact-section h2 {
+    font-size: 4rem;
+    color: var(--light-gray);
+}
+
 #contact-section p {
     margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+#contact-section p:hover {
+    text-decoration: underline;
 }
 
 #contact-links {
@@ -116,7 +148,8 @@ i {
 }
 
 footer {
-    background-color: var(--light-purple);
+    background-color: var(--black-purple);
     display: flex;
+    color: var(--light-gray);
     justify-content: center;
 }
