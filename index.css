@@ -1,9 +1,9 @@
 :root {
-    --main-green: #00B57F;
-    --dark-velvet: #690A23;
-    --light-velvet: #B50936;
-    --dark-brown: #693A0A;
-    --light-brown: #B56009;
+    --main-green: #43E97B;
+    --dark-purple: #9C3D93;
+    --light-purple: #E84FDA;
+    --dark-brown: #9C461E;
+    --light-brown: #E87038;
 }
 
 @media (max-width: 75em) {
@@ -15,6 +15,7 @@
 html {
     scroll-behavior: smooth;
     color: white;
+    font-family: 'Cabin', sans-serif;
 }
 
 body {
@@ -26,12 +27,26 @@ a {
     color: white;
 }
 
+h1 {
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+#welcome-section h3 {
+    font-style: italic;
+    font-weight: lighter;
+}
+
+h3 {
+    font-weight: lighter;
+}
+
 #navbar {
     display: flex;
     justify-content: flex-end;
     position: fixed;
     width: 100%;
-    background-color: var(--light-velvet);
+    background-color: var(--dark-purple);
 }
 
 #navbar ul {
@@ -49,7 +64,7 @@ a {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: var(--main-green);
+    background-image: linear-gradient(to bottom, #43e97b 0%, #38f9d7 100%);
 }
 
 #projects {
@@ -58,7 +73,7 @@ a {
     flex-direction: column;
     align-items: center;
     padding: 1.5rem 1.5rem;
-    background-color: var(--dark-brown);
+    background-color: var(--dark-purple)
 }
 
 .project-tile {
@@ -74,13 +89,13 @@ a {
 
 figcaption {
     text-align: center;
-    background-color: red;
+    background-color: var(--light-brown);
     padding: 1rem 1rem;
     margin-top: -5px;
 }
 
 #contact-section {
-    background-color: var(--dark-velvet);
+    background-color: var(--main-green);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -101,7 +116,7 @@ i {
 }
 
 footer {
-    background-color: var(--light-brown);
+    background-color: var(--light-purple);
     display: flex;
     justify-content: center;
 }
