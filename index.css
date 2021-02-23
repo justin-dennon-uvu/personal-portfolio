@@ -1,0 +1,16 @@
+@media (max-width: 75em) {
+    html {
+        background-color: yellow;
+    }
+}
+#welcome-section {
+    height: 100vh;
+}
+#navbar {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
