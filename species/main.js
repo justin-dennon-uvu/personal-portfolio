@@ -7,23 +7,48 @@ itemTwo.textContent = films[1].title */
 
 //console.log(films[0].title)
 
-let speciesList = document.querySelector('.speciesList')
+// let speciesList = document.querySelector('.speciesList')
 
-for (let i = 0; i < species.length; i++) {
-    const foundSpecies = species.find(species => getLastNumber(species.url) === (i + 1))
-    let figure = document.createElement('figure')
-    let newImage = document.createElement('img')
-    let figCaption = document.createElement('figcaption')
-    newImage.src = `https://starwars-visualguide.com/assets/img/species/${i + 1}.jpg`
-    figCaption.textContent = foundSpecies.name
+// for (let i = 0; i < species.length; i++) {
+//     const foundSpecies = species.find(species => getLastNumber(species.url) === (i + 1))
+//     let figure = document.createElement('figure')
+//     let newImage = document.createElement('img')
+//     let figCaption = document.createElement('figcaption')
+//     newImage.src = `https://starwars-visualguide.com/assets/img/species/${i + 1}.jpg`
+//     figCaption.textContent = foundSpecies.name
     
-    figure.appendChild(newImage)
-    figure.appendChild(figCaption)
-    speciesList.appendChild(figure)
+//     figure.appendChild(newImage)
+//     figure.appendChild(figCaption)
+//     speciesList.appendChild(figure)
 
-}
+// }
  
-function getLastNumber(url) {
-    let end = url[url.length - 2]
-    return parseInt(end, 10)
+// function getLastNumber(url) {
+//     let end = url[url.length - 2]
+//     return parseInt(end, 10)
+// }
+
+
+
+
+
+
+const navList = document.querySelector('.speciesList')
+
+function populateNav() {
+    species.forEach((creature) => {
+        let listItem = document.createElement('li')
+        listItem.textContent = creature.name
+
+        navList.appendChild(listItem)
+    })
 }
+
+function populateCreatureView(creatureData) {
+    let creatureImage = document.createElement('img')
+    creatureImage.src = `https://starwars-visualguide.com/assets/img/species/12.jpg`
+    creatureView.appendChild(creatureImage)
+}
+
+populateNav()
+populateCreatureView()
