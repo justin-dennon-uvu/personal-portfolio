@@ -1,54 +1,52 @@
 import { species } from '../data/species.js'
 
-/* let itemOne = document.querySelector('#item1')
-let itemTwo = document.querySelector('#item2')
-itemOne.textContent = films[2].title
-itemTwo.textContent = films[1].title */
-
-//console.log(films[0].title)
-
-// let speciesList = document.querySelector('.speciesList')
-
-// for (let i = 0; i < species.length; i++) {
-//     const foundSpecies = species.find(species => getLastNumber(species.url) === (i + 1))
-//     let figure = document.createElement('figure')
-//     let newImage = document.createElement('img')
-//     let figCaption = document.createElement('figcaption')
-//     newImage.src = `https://starwars-visualguide.com/assets/img/species/${i + 1}.jpg`
-//     figCaption.textContent = foundSpecies.name
-    
-//     figure.appendChild(newImage)
-//     figure.appendChild(figCaption)
-//     speciesList.appendChild(figure)
-
-// }
- 
-// function getLastNumber(url) {
-//     let end = url[url.length - 2]
-//     return parseInt(end, 10)
-// }
+const speciesList = document.querySelector('.speciesList')
+const header = document.querySelector('header')
 
 
+// const oneButton = document.createElement('button')
+// oneButton.textContent = 'Episode 1'
+// oneButton.addEventListener('click', () => populateDOM(episodeOneSpecies))
+// header.appendChild(oneButton)
+
+// const episodeOneSpecies = species.filter(creature => creature.language === 'Huttese')
 
 
-
-
-const navList = document.querySelector('.speciesList')
-
-function populateNav() {
+function populateDOM() {
+    removeChildren(speciesList)
     species.forEach((creature) => {
-        let listItem = document.createElement('li')
-        listItem.textContent = creature.name
 
-        navList.appendChild(listItem)
+        let creatureFigure = document.createElement('figure')
+
+        let creatureImage = document.createElement('img')
+        let creatureNumber = urlNumber(creature.url)
+        creatureImage.src = `https://starwars-visualguide.com/assets/img/species/${creatureNumber}.jpg`
+
+        let listCaption = document.createElement('figcaption')
+        listCaption.textContent = creature.name
+
+        creatureFigure.appendChild(creatureImage)
+        creatureFigure.appendChild(listCaption)
+        speciesList.appendChild(creatureFigure)
+
     })
 }
 
-function populateCreatureView(creatureData) {
-    let creatureImage = document.createElement('img')
-    creatureImage.src = `https://starwars-visualguide.com/assets/img/species/12.jpg`
-    creatureView.appendChild(creatureImage)
+
+function urlNumber(url) {
+    let end = url.lastIndexOf('/')
+    let start = end - 2
+    if (url.charAt(start) === '/') {
+        start++
+    }
+    return url.slice(start, end)
 }
 
-populateNav()
-populateCreatureView()
+function removeChildren(container) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+}
+
+
+populateDOM()

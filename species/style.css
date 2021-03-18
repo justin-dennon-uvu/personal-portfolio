@@ -1,4 +1,27 @@
+body {
+    background-color: black;
+    color: white;
+}
+
 .speciesList {
     display: flex;
     flex-wrap: wrap;
+}
+
+img {
+    height: 200px;
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+figure {
+    margin: 1em;
+    border: 5px solid white;
+    /* padding: 0.5em; */
+    border-radius: 10%;
+}
+
+figcaption {
+    text-align: center;
+    padding-bottom: 0.5em;
 }
