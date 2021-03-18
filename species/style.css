@@ -3,6 +3,22 @@ body {
     color: white;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5%;
+}
+
 .speciesList {
     display: flex;
     flex-wrap: wrap;

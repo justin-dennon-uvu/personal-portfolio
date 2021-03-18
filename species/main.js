@@ -4,16 +4,16 @@ const speciesList = document.querySelector('.speciesList')
 const header = document.querySelector('header')
 
 
-// const oneButton = document.createElement('button')
-// oneButton.textContent = 'Episode 1'
-// oneButton.addEventListener('click', () => populateDOM(episodeOneSpecies))
-// header.appendChild(oneButton)
+const oneButton = document.createElement('button')
+oneButton.textContent = 'Episode 1'
+oneButton.addEventListener('click', () => populateDOM(episodeOneSpecies))
+header.appendChild(oneButton)
 
-// const episodeOneSpecies = species.filter(creature => creature.language === 'Huttese')
+const episodeOneSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/1/"))
 
 
-function populateDOM() {
-    removeChildren(speciesList)
+function populateDOM(species) {
+    clearSpecies(speciesList)
     species.forEach((creature) => {
 
         let creatureFigure = document.createElement('figure')
@@ -42,11 +42,11 @@ function urlNumber(url) {
     return url.slice(start, end)
 }
 
-function removeChildren(container) {
+function clearSpecies(container) {
     while (container.firstChild) {
         container.removeChild(container.firstChild)
     }
 }
 
 
-populateDOM()
+populateDOM(species)
