@@ -1,63 +1,63 @@
 import { species } from '../data/species.js'
 
 const speciesList = document.querySelector('.speciesList')
-const header = document.querySelector('header')
+const nav = document.querySelector('nav')
 
 // buttons
 
-const oneButton = document.createElement('button')
-oneButton.textContent = 'Episode 1'
-oneButton.addEventListener('click', () => populateDOM(episodeOneSpecies))
-header.appendChild(oneButton)
-
-const episodeOneSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/1/"))
-
-const twoButton = document.createElement('button')
-twoButton.textContent = 'Episode 2'
-twoButton.addEventListener('click', () => populateDOM(episodeTwoSpecies))
-header.appendChild(twoButton)
-
-const episodeTwoSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/2/"))
-
-const threeButton = document.createElement('button')
-threeButton.textContent = 'Episode 3'
-threeButton.addEventListener('click', () => populateDOM(episodeThreeSpecies))
-header.appendChild(threeButton)
-
-const episodeThreeSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/3/"))
+const allButton = document.createElement('button')
+allButton.textContent = 'All'
+allButton.addEventListener('click', () => populateDOM(species))
+nav.appendChild(allButton)
 
 const fourButton = document.createElement('button')
-fourButton.textContent = 'Episode 4'
+fourButton.textContent = 'Episode I'
 fourButton.addEventListener('click', () => populateDOM(episodeFourSpecies))
-header.appendChild(fourButton)
+nav.appendChild(fourButton)
 
 const episodeFourSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/4/"))
 
 const fiveButton = document.createElement('button')
-fiveButton.textContent = 'Episode 5'
+fiveButton.textContent = 'Episode II'
 fiveButton.addEventListener('click', () => populateDOM(episodeFiveSpecies))
-header.appendChild(fiveButton)
+nav.appendChild(fiveButton)
 
 const episodeFiveSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/5/"))
 
 const sixButton = document.createElement('button')
-sixButton.textContent = 'Episode 6'
+sixButton.textContent = 'Episode III'
 sixButton.addEventListener('click', () => populateDOM(episodeSixSpecies))
-header.appendChild(sixButton)
+nav.appendChild(sixButton)
+
+const oneButton = document.createElement('button')
+oneButton.textContent = 'Episode IV'
+oneButton.addEventListener('click', () => populateDOM(episodeOneSpecies))
+nav.appendChild(oneButton)
+
+const episodeOneSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/1/"))
+
+const twoButton = document.createElement('button')
+twoButton.textContent = 'Episode V'
+twoButton.addEventListener('click', () => populateDOM(episodeTwoSpecies))
+nav.appendChild(twoButton)
+
+const episodeTwoSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/2/"))
+
+const threeButton = document.createElement('button')
+threeButton.textContent = 'Episode VI'
+threeButton.addEventListener('click', () => populateDOM(episodeThreeSpecies))
+nav.appendChild(threeButton)
+
+const episodeThreeSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/3/"))
 
 const episodeSixSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/6/"))
 
 const sevenButton = document.createElement('button')
-sevenButton.textContent = 'Episode 7'
+sevenButton.textContent = 'Episode VII'
 sevenButton.addEventListener('click', () => populateDOM(episodeSevenSpecies))
-header.appendChild(sevenButton)
+nav.appendChild(sevenButton)
 
 const episodeSevenSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/7/"))
-
-// const allButton = document.createElement('button')
-// allButton.textContent = 'All'
-// sevenButton.addEventListener('click', () => populateDOM(species))
-// header.appendChild(allButton)
 
 // end buttons
 
@@ -96,6 +96,5 @@ function clearSpecies(container) {
         container.removeChild(container.firstChild)
     }
 }
-
 
 populateDOM(species)
