@@ -37,7 +37,7 @@ button {
     margin-right: 10px;
 }
 
-.speciesList {
+.speciesList, .planetList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

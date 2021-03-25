@@ -1,4 +1,5 @@
 import { species } from '../data/species.js'
+import { clearChildren, urlNumber } from '../utils/main.js'
 
 const speciesList = document.querySelector('.speciesList')
 const nav = document.querySelector('nav')
@@ -62,7 +63,7 @@ const episodeSevenSpecies = species.filter(creature => creature.films.includes("
 // end buttons
 
 function populateDOM(species) {
-    clearSpecies(speciesList)
+    clearChildren(speciesList)
     species.forEach((creature) => {
 
         let creatureFigure = document.createElement('figure')
@@ -79,22 +80,6 @@ function populateDOM(species) {
         speciesList.appendChild(creatureFigure)
 
     })
-}
-
-
-function urlNumber(url) {
-    let end = url.lastIndexOf('/')
-    let start = end - 2
-    if (url.charAt(start) === '/') {
-        start++
-    }
-    return url.slice(start, end)
-}
-
-function clearSpecies(container) {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild)
-    }
 }
 
 populateDOM(species)
