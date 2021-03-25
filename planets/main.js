@@ -14,6 +14,7 @@ function populateDOM(planets) {
         let planetNumber = urlNumber(planet.url)
         planetImage.src = `https://starwars-visualguide.com/assets/img/planets/${planetNumber}.jpg`
 
+
         let listCaption = document.createElement('figcaption')
         listCaption.textContent = planet.name
 
@@ -25,4 +26,3 @@ function populateDOM(planets) {
 }
 
 populateDOM(planets)
-console.log('test')
