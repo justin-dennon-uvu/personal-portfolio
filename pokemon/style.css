@@ -1,0 +1,22 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.card-view {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardContent {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.full-content {
+    transform: rotateY(180deg);
+}
