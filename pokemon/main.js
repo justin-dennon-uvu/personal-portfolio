@@ -28,33 +28,33 @@ function populatePokemonCards(singlePokemon) {
   let cardContent = document.createElement("div");
   cardContent.className = "cardContent";
   cardContent.addEventListener("click", () => {
-    cardContent.classList.toggle("full-content");
+    cardContent.classList.toggle("back-content");
   });
-  cardContent.appendChild(populateCardPreview(singlePokemon));
-  cardContent.appendChild(populateCardFull(singlePokemon));
+  cardContent.appendChild(populateCardFront(singlePokemon));
+  cardContent.appendChild(populateCardBack(singlePokemon));
   cardSpace.appendChild(cardContent);
   cardView.appendChild(cardSpace);
 }
 
-function populateCardPreview(pokemon) {
-  let cardPreview = document.createElement("div");
-  cardPreview.className = "card card-preview";
-  let cardPreviewName = document.createElement("p");
-  cardPreviewName.textContent = pokemon.name;
-  let cardPreviewImage = document.createElement("img");
-  cardPreviewImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id}.png`;
-  cardPreview.appendChild(cardPreviewImage);
-  cardPreview.appendChild(cardPreviewName);
-  return cardPreview;
+function populateCardFront(pokemon) {
+  let cardFront = document.createElement("div");
+  cardFront.className = "card card-front";
+  let cardFrontName = document.createElement("p");
+  cardFrontName.textContent = pokemon.name;
+  let cardFrontImage = document.createElement("img");
+  cardFrontImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id}.png`;
+  cardFront.appendChild(cardFrontImage);
+  cardFront.appendChild(cardFrontName);
+  return cardFront;
 }
 
-function populateCardFull(pokemon) {
-  let cardFull = document.createElement("div");
-  cardFull.className = "card card-full";
-  let cardFullNumber = document.createElement("p");
-  cardFullNumber.textContent = `PokeDex Number: ${pokemon.id}`;
-  cardFull.appendChild(cardFullNumber);
-  return cardFull;
+function populateCardBack(pokemon) {
+  let cardBack = document.createElement("div");
+  cardBack.className = "card card-back";
+  let cardBackNumber = document.createElement("p");
+  cardBackNumber.textContent = `PokeDex Number: ${pokemon.id}`;
+  cardBack.appendChild(cardBackNumber);
+  return cardBack;
 }
 
 populateCardview();

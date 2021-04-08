@@ -17,6 +17,6 @@
     position: relative;
 }
 
-.full-content {
+.back-content {
     transform: rotateY(180deg);
 }
