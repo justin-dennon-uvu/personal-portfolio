@@ -1,11 +1,26 @@
 * {
     margin: 0 auto;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
 }
 
 .card-view {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cardSpace {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 20px;
+    perspective: 600px;
 }
 
 .cardContent {
@@ -19,4 +34,40 @@
 
 .back-content {
     transform: rotateY(180deg);
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background: red;
+}
+
+.card-front img {
+    height: 100%;
+    width: 100%;
+}
+
+.card-back {
+    background: blue;
+    transform: rotateY(180deg);
+}
+
+.cardFrontName {
+    display: flex;
+    justify-content: center;
+}
+
+.cardFrontName p, img {
+    margin: 0;
+}
+
+.cardFrontName img {
+    margin-left: 5px;
 }

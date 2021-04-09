@@ -39,8 +39,9 @@ function populatePokemonCards(singlePokemon) {
 function populateCardFront(pokemon) {
   let cardFront = document.createElement("div");
   cardFront.className = "card card-front";
-  let cardFrontName = document.createElement("p");
-  cardFrontName.textContent = pokemon.name;
+  let cardFrontName = document.createElement("div");
+  cardFrontName.className = 'cardFrontName'
+  cardFrontName.innerHTML = `<p>${pokemon.name}</p><img class="type-img" style="width: 16px;" src="../images/${pokemon.types[0].type.name}.svg">`;
   let cardFrontImage = document.createElement("img");
   cardFrontImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id}.png`;
   cardFront.appendChild(cardFrontImage);
