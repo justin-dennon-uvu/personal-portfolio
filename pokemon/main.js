@@ -11,7 +11,7 @@ async function getAPIData(url) {
 }
 
 function populateCardview() {
-  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=25&offset=809`).then(
+  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=89&offset=809`).then(
     async (data) => {
       for (const singlePokemon of data.results) {
         await getAPIData(singlePokemon.url).then((pokemonData) =>
@@ -40,7 +40,7 @@ function populateCardFront(pokemon) {
   let cardFront = document.createElement("div");
   cardFront.className = "card card-front";
   let cardFrontName = document.createElement("div");
-  cardFrontName.className = 'cardFrontName'
+  cardFrontName.className = 'card-front-name'
   cardFrontName.innerHTML = `<p>${pokemon.name}</p><img class="type-img" style="width: 16px;" src="../images/${pokemon.types[0].type.name}.svg">`;
   let cardFrontImage = document.createElement("img");
   cardFrontImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id}.png`;

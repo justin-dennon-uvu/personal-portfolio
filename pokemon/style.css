@@ -2,11 +2,45 @@
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+#wrapper {
+    max-width: 960px;
+    background-color: #222;
+    padding-bottom: 30px;
 }
 
 body {
-    background-color: black;
     color: white;
+    background-image: url(../images/background.png);
+    background-repeat: repeat-y;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+#sword {
+    width: 55px;
+    height: 100px;
+    background: url(../images/swordshield.png);
+    margin: 0;
+    margin-left: 22px;
+}
+
+#shield {
+    width: 77px;
+    height: 100px;
+    background: url(../images/swordshield.png) -55px, 0;
+    margin: 0;
 }
 
 .card-view {
@@ -18,12 +52,13 @@ body {
 .cardSpace {
     width: 200px;
     height: 200px;
-    border: 1px solid black;
+    border-bottom: none;
     margin: 20px;
     perspective: 600px;
 }
 
 .cardContent {
+    position: absolute;
     width: 100%;
     height: 100%;
     transition: transform 1s;
@@ -37,16 +72,10 @@ body {
 }
 
 .card {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     text-align: center;
     font-weight: bold;
     backface-visibility: hidden;
-}
-
-.card-front {
-    background: red;
+    border: 1px solid black;
 }
 
 .card-front img {
@@ -55,19 +84,27 @@ body {
 }
 
 .card-back {
-    background: blue;
+    width: 200px;
+    height: 228px;
     transform: rotateY(180deg);
+    position: relative; top: -228px;
 }
 
-.cardFrontName {
+.card-back p {
+    margin-top: 50px;
+}
+
+.card-front-name {
     display: flex;
     justify-content: center;
+    margin-top: -5px;
+    padding-bottom: 10px;
 }
 
-.cardFrontName p, img {
+.card-front-name p, img {
     margin: 0;
 }
 
-.cardFrontName img {
+.card-front-name img {
     margin-left: 5px;
 }
