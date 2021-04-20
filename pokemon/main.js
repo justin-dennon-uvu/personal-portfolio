@@ -1,5 +1,32 @@
 const cardView = document.querySelector(".card-view");
 
+const newButton = document.querySelector(".custom-pokemon");
+
+class Pokemon {
+  constructor(name, height, weight, abilities, moves) {
+    this.id = 850;
+    this.name = name;
+    this.height = height;
+    this.weight = weight;
+    this.abilities = abilities;
+    this.moves = moves;
+  }
+}
+
+newButton.addEventListener("click", () => {
+  let pokeName = prompt("What is the name of your new Pokemon?");
+  let pokeHeight = prompt("Pokemon height?");
+  let pokeWeight = prompt("Pokemon weight?");
+  let newPokemon = new Pokemon(
+    pokeName,
+    pokeHeight,
+    pokeWeight,
+    ["eat", "sleep"],
+    ["study", "code", "silence"]
+  );
+  populatePokemonCards(newPokemon);
+});
+
 async function getAPIData(url) {
   try {
     const response = await fetch(url);
@@ -40,12 +67,12 @@ function populateCardFront(pokemon) {
   let cardFront = document.createElement("div");
   cardFront.className = "card card-front";
   let cardFrontName = document.createElement("div");
-  cardFrontName.className = 'card-front-name'
-  cardFrontName.innerHTML = `<p>${pokemon.name}</p><img class="type-img" style="width: 16px;" src="../images/${pokemon.types[0].type.name}.svg">`;
+  // cardFrontName.className = "card-front-name";
+  // cardFrontName.innerHTML = `<p>${pokemon.name}</p><img class="type-img" style="width: 16px;" src="../images/${pokemon.types[0].type.name}.svg">`;
   let cardFrontImage = document.createElement("img");
   cardFrontImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id}.png`;
   cardFront.appendChild(cardFrontImage);
-  cardFront.appendChild(cardFrontName);
+  // cardFront.appendChild(cardFrontName);
   return cardFront;
 }
 
@@ -58,4 +85,4 @@ function populateCardBack(pokemon) {
   return cardBack;
 }
 
-populateCardview();
+populateCardview()

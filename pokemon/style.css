@@ -43,6 +43,11 @@ h1 {
     margin: 0;
 }
 
+.custom-pokemon {
+    width: 169px;
+    height: 20px;
+}
+
 .card-view {
     display: flex;
     flex-wrap: wrap;
