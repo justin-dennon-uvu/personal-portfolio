@@ -4,7 +4,7 @@ const newButton = document.querySelector(".custom-pokemon");
 
 class Pokemon {
   constructor(name, height, weight, abilities, moves) {
-    this.id = 850;
+    this.id = 899;
     this.name = name;
     this.height = height;
     this.weight = weight;
@@ -70,7 +70,7 @@ function populateCardFront(pokemon) {
   // cardFrontName.className = "card-front-name";
   // cardFrontName.innerHTML = `<p>${pokemon.name}</p><img class="type-img" style="width: 16px;" src="../images/${pokemon.types[0].type.name}.svg">`;
   let cardFrontImage = document.createElement("img");
-  cardFrontImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id}.png`;
+  cardFrontImage.src = getImage(pokemon)
   cardFront.appendChild(cardFrontImage);
   // cardFront.appendChild(cardFrontName);
   return cardFront;
@@ -83,6 +83,15 @@ function populateCardBack(pokemon) {
   cardBackNumber.textContent = `PokeDex Number: ${pokemon.id}`;
   cardBack.appendChild(cardBackNumber);
   return cardBack;
+}
+
+function getImage(pokemon) {
+  let pokeID
+  if (pokemon.id < 899) pokeID = pokemon.id
+  if (pokemon.id === 899) {
+    return `../images/pokeball.png`
+  }
+  return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeID}.png`;
 }
 
 populateCardview()
