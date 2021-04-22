@@ -80,8 +80,10 @@ function populateCardFront(pokemon) {
   cardFrontNameText.textContent = pokemon.name;
   let cardFrontNameType = document.createElement('img')
   cardFrontNameType.src = getTypeImage(pokemon)
+  cardFrontNameType.className = 'type-1'
   let cardFrontNameType2 = document.createElement('img')
   cardFrontNameType2.src = getTypeImage2(pokemon)
+  cardFrontNameType2.className = 'type-2'
   let cardFrontImage = document.createElement("img");
   cardFrontImage.src = getImage(pokemon);
   cardFrontName.appendChild(cardFrontNameText);

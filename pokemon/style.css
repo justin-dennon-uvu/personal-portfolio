@@ -111,6 +111,14 @@ h1 {
 }
 
 .card-front-name img {
-    margin-left: 5px;
+    margin-left: 8px;
     width: 16px;
+}
+
+.card-front-name .type-2 {
+    margin-left: 2px;
+}
+
+.card-front-name {
+    margin-left: 32px;
 }
