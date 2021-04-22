@@ -105,12 +105,10 @@ function getImage(pokemon) {
 }
 
 function getTypeImage(pokemon) {
-  let typeImg
   if (pokemon.id < 899) {
     return `../images/${pokemon.types[0].type.name}.svg`
-  }
-  if (pokemon.id === 900) {
-    return `../images/${pokeType}.svg`
+  } else {
+    return `../images/${pokemon.type}.svg`
   }
 }
 
