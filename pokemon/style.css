@@ -43,9 +43,23 @@ h1 {
     margin: 0;
 }
 
+nav {
+    display: flex;
+    margin-top: -50px;
+    margin-bottom: 20px;
+}
+
 .custom-pokemon {
-    width: 169px;
-    height: 20px;
+    width: 200px;
+    height: 40px;
+    background-image: linear-gradient(to top, rgb(224, 2, 87), rgba(224, 2, 87, .7) 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.custom-pokemon:hover {
+    cursor: pointer;
 }
 
 .card-view {
@@ -60,6 +74,7 @@ h1 {
     border-bottom: none;
     margin: 20px;
     perspective: 600px;
+    margin-bottom: 50px;
 }
 
 .cardContent {
@@ -80,7 +95,12 @@ h1 {
     text-align: center;
     font-weight: bold;
     backface-visibility: hidden;
-    border: 1px solid black;
+    border: 2px solid #ffe719;
+    border-radius: 20px;
+}
+
+.card-front {
+    background-color: rgb(37, 175, 208);
 }
 
 .card-front img {
@@ -93,10 +113,15 @@ h1 {
     height: 228px;
     transform: rotateY(180deg);
     position: relative; top: -228px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(224, 2, 87);
 }
 
-.card-back p {
-    margin-top: 50px;
+.card-back-content {
+    text-align: left;
 }
 
 .card-front-name {

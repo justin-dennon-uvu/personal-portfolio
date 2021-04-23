@@ -1,36 +1,30 @@
 const cardView = document.querySelector(".card-view");
-
 const newButton = document.querySelector(".custom-pokemon");
 
-{/* <img class="type-img" style="width: 16px;" src="../images/${pokemon.types[0].type.name}.svg"></img> */}
-
 class Pokemon {
-  constructor(name, type, type2, height, weight, abilities, moves) {
+  constructor(name, type, type2, height, weight) {
     this.id = 899;
     this.name = name;
     this.type = type;
     this.type2 = type2;
     this.height = height;
     this.weight = weight;
-    this.abilities = abilities;
-    this.moves = moves;
   }
 }
 
 newButton.addEventListener("click", () => {
   let pokeName = prompt("What is the name of your new Pokemon?");
-  let pokeType = prompt("Pokemon type?")
-  let pokeType2 = prompt("Second type?")
+  let pokeType = prompt("Pokemon type?");
+  let pokeType2 = prompt("Second type?");
   let pokeHeight = prompt("Height?");
   let pokeWeight = prompt("Weight?");
+  alert("Your new Pokemon has been made! It can be found at the bottom of the page.")
   let newPokemon = new Pokemon(
     pokeName,
     pokeType,
     pokeType2,
     pokeHeight,
     pokeWeight,
-    ["eat", "sleep"],
-    ["study", "code", "silence"]
   );
   populatePokemonCards(newPokemon);
 });
@@ -78,17 +72,17 @@ function populateCardFront(pokemon) {
   cardFrontName.className = "card-front-name";
   let cardFrontNameText = document.createElement("p");
   cardFrontNameText.textContent = pokemon.name;
-  let cardFrontNameType = document.createElement('img')
-  cardFrontNameType.src = getTypeImage(pokemon)
-  cardFrontNameType.className = 'type-1'
-  let cardFrontNameType2 = document.createElement('img')
-  cardFrontNameType2.src = getTypeImage2(pokemon)
-  cardFrontNameType2.className = 'type-2'
+  let cardFrontNameType = document.createElement("img");
+  cardFrontNameType.src = getTypeImage(pokemon);
+  cardFrontNameType.className = "type-1";
+  let cardFrontNameType2 = document.createElement("img");
+  cardFrontNameType2.src = getTypeImage2(pokemon);
+  cardFrontNameType2.className = "type-2";
   let cardFrontImage = document.createElement("img");
   cardFrontImage.src = getImage(pokemon);
   cardFrontName.appendChild(cardFrontNameText);
-  cardFrontName.appendChild(cardFrontNameType)
-  cardFrontName.appendChild(cardFrontNameType2)
+  cardFrontName.appendChild(cardFrontNameType);
+  cardFrontName.appendChild(cardFrontNameType2);
   cardFront.appendChild(cardFrontImage);
   cardFront.appendChild(cardFrontName);
   return cardFront;
@@ -97,9 +91,18 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   let cardBack = document.createElement("div");
   cardBack.className = "card card-back";
+  let cardBackContent = document.createElement('div')
+  cardBackContent.className = 'card-back-content'
   let cardBackNumber = document.createElement("p");
   cardBackNumber.textContent = `PokeDex Number: ${pokemon.id}`;
-  cardBack.appendChild(cardBackNumber);
+  let cardBackHeight = document.createElement("p");
+  cardBackHeight.textContent = `Height: ${pokemon.height}`;
+  let cardBackWeight = document.createElement('p')
+  cardBackWeight.textContent = `Weight: ${pokemon.weight}`
+  cardBackContent.appendChild(cardBackNumber)
+  cardBackContent.appendChild(cardBackHeight);
+  cardBackContent.appendChild(cardBackWeight);
+  cardBack.appendChild(cardBackContent)
   return cardBack;
 }
 
@@ -114,18 +117,18 @@ function getImage(pokemon) {
 
 function getTypeImage(pokemon) {
   if (pokemon.id < 899) {
-    return `../images/${pokemon.types[0].type.name}.svg`
+    return `../images/${pokemon.types[0].type.name}.svg`;
   } else {
-    return `../images/${pokemon.type}.svg`
+    return `../images/${pokemon.type}.svg`;
   }
 }
 
 function getTypeImage2(pokemon) {
   if (pokemon.id === 899) {
-    return `../images/${pokemon.type2}.svg`
-  } 
+    return `../images/${pokemon.type2}.svg`;
+  }
   if (pokemon.types[1]) {
-    return `../images/${pokemon.types[1].type.name}.svg`
+    return `../images/${pokemon.types[1].type.name}.svg`;
   }
 }
 
@@ -136,7 +139,7 @@ function getTypeImage2(pokemon) {
 //   if (pokemon.id === 899) {
 //     return `../images/${pokemon.type2}.svg`
 //   } else {
-    
+
 //   }
 // }
 
