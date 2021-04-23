@@ -18,13 +18,15 @@ newButton.addEventListener("click", () => {
   let pokeType2 = prompt("Second type?");
   let pokeHeight = prompt("Height?");
   let pokeWeight = prompt("Weight?");
-  alert("Your new Pokemon has been made! It can be found at the bottom of the page.")
+  alert(
+    "Your new Pokemon has been made! It can be found at the bottom of the page."
+  );
   let newPokemon = new Pokemon(
     pokeName,
     pokeType,
     pokeType2,
     pokeHeight,
-    pokeWeight,
+    pokeWeight
   );
   populatePokemonCards(newPokemon);
 });
@@ -91,18 +93,18 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   let cardBack = document.createElement("div");
   cardBack.className = "card card-back";
-  let cardBackContent = document.createElement('div')
-  cardBackContent.className = 'card-back-content'
+  let cardBackContent = document.createElement("div");
+  cardBackContent.className = "card-back-content";
   let cardBackNumber = document.createElement("p");
   cardBackNumber.textContent = `PokeDex Number: ${pokemon.id}`;
   let cardBackHeight = document.createElement("p");
   cardBackHeight.textContent = `Height: ${pokemon.height}`;
-  let cardBackWeight = document.createElement('p')
-  cardBackWeight.textContent = `Weight: ${pokemon.weight}`
-  cardBackContent.appendChild(cardBackNumber)
+  let cardBackWeight = document.createElement("p");
+  cardBackWeight.textContent = `Weight: ${pokemon.weight}`;
+  cardBackContent.appendChild(cardBackNumber);
   cardBackContent.appendChild(cardBackHeight);
   cardBackContent.appendChild(cardBackWeight);
-  cardBack.appendChild(cardBackContent)
+  cardBack.appendChild(cardBackContent);
   return cardBack;
 }
 
@@ -131,16 +133,5 @@ function getTypeImage2(pokemon) {
     return `../images/${pokemon.types[1].type.name}.svg`;
   }
 }
-
-// function getTypeImage2(pokemon) {
-//   if (pokemon.types[1]) {
-//     return `../images/${pokemon.types[1].type.name}.svg`
-//   }
-//   if (pokemon.id === 899) {
-//     return `../images/${pokemon.type2}.svg`
-//   } else {
-
-//   }
-// }
 
 populateCardview();
