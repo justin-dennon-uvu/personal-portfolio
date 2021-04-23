@@ -9,6 +9,7 @@
     max-width: 960px;
     background-color: #222;
     padding-bottom: 30px;
+    box-shadow: 0px 0px 50px #777;
 }
 
 body {
@@ -97,6 +98,7 @@ nav {
     backface-visibility: hidden;
     border: 2px solid #ffe719;
     border-radius: 20px;
+    box-shadow: 0px 0px 10px #ffe719;
 }
 
 .card-front {
