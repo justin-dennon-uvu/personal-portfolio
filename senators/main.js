@@ -10,8 +10,8 @@ allButton.addEventListener("click", () => populateMain(senators));
 nav.appendChild(allButton);
 
 const missedButton = document.createElement("button");
-missedButton.textContent = "Total Missed Votes";
-missedButton.addEventListener("click", () => populateMissed(totalMissed));
+missedButton.textContent = "Missed Votes";
+missedButton.addEventListener("click", () => missedSort());
 nav.appendChild(missedButton);
 
 function populateMain(senators) {
@@ -22,7 +22,7 @@ function populateMain(senators) {
     let senatorCaption = document.createElement("figcaption");
 
     senatorImg.src = `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-100px.jpeg`;
-    senatorCaption.textContent = senator.first_name;
+    senatorCaption.textContent = senator.first_name + " " + senator.missed_votes;
 
     senatorFigure.appendChild(senatorImg);
     senatorFigure.appendChild(senatorCaption);
@@ -30,27 +30,27 @@ function populateMain(senators) {
   });
 }
 
-function populateMissed(totalMissed) {
+function missedSort() {
   clearChildren(main);
-  totalMissed.forEach((senator) => {
-    let missedFigure = document.createElement("figure");
-    let missedImg = document.createElement("img");
-    let missedCaption = document.createElement("figcaption");
-
-    missedImg.src = `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-100px.jpeg`;
-    missedCaption.textContent =
-      senator.first_name + " " + senator.missed_votes;
-
-    missedFigure.appendChild(missedImg);
-    missedFigure.appendChild(missedCaption);
-    main.appendChild(missedFigure);
-  });
+  populateMain((senators).sort((a, b) => a.missed_votes - b.missed_votes).reverse())
 }
 
-let totalMissed = senators.filter((senator) => senator.missed_votes);
-let missedArray = totalMissed.map((senator) => senator.missed_votes);
-missedArray.sort();
+// function populateMissed(totalMissed) {
+//   clearChildren(main);
+//   totalMissed.forEach((senator) => {
+//     let missedFigure = document.createElement("figure");
+//     let missedImg = document.createElement("img");
+//     let missedCaption = document.createElement("figcaption");
+
+//     missedImg.src = `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-100px.jpeg`;
+//     missedCaption.textContent = senator.first_name + " " + senator.missed_votes;
+
+//     missedFigure.appendChild(missedImg);
+//     missedFigure.appendChild(missedCaption);
+//     main.appendChild(missedFigure);
+//   });
+// }
+
+// let totalMissed = senators.filter((senator) => senator.missed_votes);
 
 populateMain(senators);
-console.log(missedArray);
-// apply missedArray to each senator in descending order
