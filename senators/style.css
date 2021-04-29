@@ -1,6 +1,33 @@
+html {
+  font-family: 'Playfair Display', serif;
+}
+
+body {
+  background-color: #3c3b6e;
+  margin: 0;
+}
+
 #wrapper {
   margin: 0 auto;
   max-width: 1200px;
+  background-color: white;
+}
+
+h1 {
+  color: #3c3b6e;
+}
+
+button {
+  margin: 0 10px;
+  border: none;
+  background-color: #B22234;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 header {

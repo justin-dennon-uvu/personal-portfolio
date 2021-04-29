@@ -45,9 +45,10 @@ function populateMain(senators) {
     let senatorFigure = document.createElement("figure");
     let senatorImg = document.createElement("img");
     let senatorCaption = document.createElement("figcaption");
+    let getBirthDate = senator.date_of_birth.substring(0,4);
 
     senatorImg.src = `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-200px.jpeg`;
-    senatorCaption.textContent = senator.first_name + " " + senator.last_name;
+    senatorCaption.textContent = senator.first_name + " " + senator.last_name + " " + getBirthDate;
 
     senatorFigure.appendChild(senatorImg);
     senatorFigure.appendChild(senatorCaption);
