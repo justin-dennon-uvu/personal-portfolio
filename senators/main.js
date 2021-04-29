@@ -47,7 +47,7 @@ function populateMain(senators) {
     let senatorCaption = document.createElement("figcaption");
 
     senatorImg.src = `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-200px.jpeg`;
-    senatorCaption.textContent = namePrefix(senators, `M`) + " " + senator.first_name;
+    senatorCaption.textContent = senator.first_name + " " + senator.last_name;
 
     senatorFigure.appendChild(senatorImg);
     senatorFigure.appendChild(senatorCaption);
@@ -62,14 +62,5 @@ const filterParty = (senators, politicalParty) => {
 const filterGender = (senators, senatorGender) => {
   return senators.filter((member) => member.gender === senatorGender);
 };
-
-const namePrefix = (senators, senatorGender) => {
-  if (senatorGender === 'F') {
-    return 'Mrs.'
-  }
-  if (senatorGender === 'M') {
-    return 'Mr.'
-  }
-}
 
 populateMain(senators);
