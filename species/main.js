@@ -5,7 +5,6 @@ const speciesList = document.querySelector('.speciesList')
 const nav = document.querySelector('nav')
 
 // buttons
-
 const allButton = document.createElement('button')
 allButton.textContent = 'All'
 allButton.addEventListener('click', () => populateDOM(species))
@@ -60,8 +59,7 @@ nav.appendChild(sevenButton)
 
 const episodeSevenSpecies = species.filter(creature => creature.films.includes("https://swapi.co/api/films/7/"))
 
-// end buttons
-
+// create characters figures
 function populateDOM(species) {
     clearChildren(speciesList)
     species.forEach((creature) => {

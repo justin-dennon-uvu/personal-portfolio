@@ -7,12 +7,14 @@ const info = document.querySelector('.info')
 function populateDOM(planets) {
     planets.forEach((planet) => {
 
+        // click planets to display information
         let aWrap = document.createElement('a')
         aWrap.href = '#'
         aWrap.addEventListener('click', () => {
 
             clearChildren(info)
 
+            // planet information
             let planetName = document.createElement('p')
             planetName.textContent =`name: ${planet.name}`
             info.appendChild(planetName)
@@ -51,6 +53,7 @@ function populateDOM(planets) {
 
         })
 
+        // planet figure elements
         let planetFigure = document.createElement('figure')
 
         let planetImage = document.createElement('img')

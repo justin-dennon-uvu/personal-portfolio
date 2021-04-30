@@ -4,6 +4,7 @@ import { clearChildren } from "../utils/main.js";
 const nav = document.querySelector("nav");
 const main = document.querySelector("main");
 
+// creating buttons
 const allButton = document.createElement("button");
 nav.appendChild(allButton);
 allButton.addEventListener("click", () => {
@@ -46,6 +47,7 @@ oldestSenatorButton.addEventListener('click', () => {
 })
 oldestSenatorButton.textContent = 'Oldest Senator'
 
+// creating senator figures
 function populateMain(senators) {
   clearChildren(main);
   senators.forEach((senator) => {
@@ -63,19 +65,20 @@ function populateMain(senators) {
   });
 }
 
+// filter senators by party
 const filterParty = (senators, politicalParty) => {
   return senators.filter((member) => member.party === politicalParty);
 };
 
+// filter senators by gender
 const filterGender = (senators, senatorGender) => {
   return senators.filter((member) => member.gender === senatorGender);
 };
 
+// reduce function to filter oldest senator
 const oldestSenator = (senators) => {
   const oldestSenateMember = senators.reduce((acc, member) => acc.date_of_birth < member.date_of_birth ? acc : member)
    return senators.filter((person) => person.date_of_birth === oldestSenateMember.date_of_birth)
 }
-
-console.log(oldestSenator(senators))
 
 populateMain(senators);

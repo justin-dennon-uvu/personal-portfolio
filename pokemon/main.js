@@ -1,6 +1,7 @@
 const cardView = document.querySelector(".card-view");
 const newButton = document.querySelector(".custom-pokemon");
 
+// custom pokemon constructor
 class Pokemon {
   constructor(name, type, type2, height, weight) {
     this.id = 899;
@@ -12,6 +13,7 @@ class Pokemon {
   }
 }
 
+// button to create new pokemon
 newButton.addEventListener("click", () => {
   let pokeName = prompt("What is the name of your new Pokemon?");
   let pokeType = prompt("Pokemon type?");
@@ -31,6 +33,7 @@ newButton.addEventListener("click", () => {
   populatePokemonCards(newPokemon);
 });
 
+// get pokemon info from api
 async function getAPIData(url) {
   try {
     const response = await fetch(url);
@@ -41,6 +44,7 @@ async function getAPIData(url) {
   }
 }
 
+// extract info from desired pokemon
 function populateCardview() {
   getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=89&offset=809`).then(
     async (data) => {
@@ -53,6 +57,7 @@ function populateCardview() {
   );
 }
 
+// create pokemon card element
 function populatePokemonCards(singlePokemon) {
   let cardSpace = document.createElement("div");
   cardSpace.className = "cardSpace";
@@ -67,6 +72,7 @@ function populatePokemonCards(singlePokemon) {
   cardView.appendChild(cardSpace);
 }
 
+// pokemon card front elements
 function populateCardFront(pokemon) {
   let cardFront = document.createElement("div");
   cardFront.className = "card card-front";
@@ -90,6 +96,7 @@ function populateCardFront(pokemon) {
   return cardFront;
 }
 
+// pokemon card back elements
 function populateCardBack(pokemon) {
   let cardBack = document.createElement("div");
   cardBack.className = "card card-back";
@@ -108,6 +115,7 @@ function populateCardBack(pokemon) {
   return cardBack;
 }
 
+// obtain pokemon image url from pokemon id
 function getImage(pokemon) {
   let pokeID;
   if (pokemon.id < 899) pokeID = pokemon.id;
@@ -117,6 +125,7 @@ function getImage(pokemon) {
   return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeID}.png`;
 }
 
+// obtain type image url from pokemon type
 function getTypeImage(pokemon) {
   if (pokemon.id < 899) {
     return `../images/${pokemon.types[0].type.name}.svg`;
@@ -125,6 +134,7 @@ function getTypeImage(pokemon) {
   }
 }
 
+// obtain secondary type image url from secondary pokemon type
 function getTypeImage2(pokemon) {
   if (pokemon.id === 899) {
     return `../images/${pokemon.type2}.svg`;
