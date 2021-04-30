@@ -39,16 +39,23 @@ maleButton.addEventListener('click', () => {
 })
 maleButton.textContent = 'Male Senators'
 
+const oldestSenatorButton = document.createElement('button')
+nav.appendChild(oldestSenatorButton)
+oldestSenatorButton.addEventListener('click', () => {
+  populateMain(oldestSenator(senators))
+})
+oldestSenatorButton.textContent = 'Oldest Senator'
+
 function populateMain(senators) {
   clearChildren(main);
   senators.forEach((senator) => {
     let senatorFigure = document.createElement("figure");
     let senatorImg = document.createElement("img");
     let senatorCaption = document.createElement("figcaption");
-    let getBirthDate = senator.date_of_birth.substring(0,4);
+    let birthYear = senator.date_of_birth.substring(0,4);
 
     senatorImg.src = `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-200px.jpeg`;
-    senatorCaption.textContent = senator.first_name + " " + senator.last_name + " " + getBirthDate;
+    senatorCaption.textContent = senator.first_name + " " + senator.last_name + " " + `(${birthYear})`;
 
     senatorFigure.appendChild(senatorImg);
     senatorFigure.appendChild(senatorCaption);
@@ -63,5 +70,12 @@ const filterParty = (senators, politicalParty) => {
 const filterGender = (senators, senatorGender) => {
   return senators.filter((member) => member.gender === senatorGender);
 };
+
+const oldestSenator = (senators) => {
+  const oldestSenateMember = senators.reduce((acc, member) => acc.date_of_birth < member.date_of_birth ? acc : member)
+   return senators.filter((person) => person.date_of_birth === oldestSenateMember.date_of_birth)
+}
+
+console.log(oldestSenator(senators))
 
 populateMain(senators);
