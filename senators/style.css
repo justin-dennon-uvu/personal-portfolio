@@ -10,7 +10,7 @@ body {
 #wrapper {
   margin: 0 auto;
   max-width: 1200px;
-  background-color: white;
+  background-color: #ffffe0;
 }
 
 h1 {
@@ -42,6 +42,17 @@ main {
   justify-content: center;
 }
 
+figure {
+  border: 6px ridge #3c3b6e;
+}
+
+figure img {
+  border-bottom: 6px ridge #3c3b6e;
+}
+
 figcaption {
     text-align: center;
+    padding-bottom: 5px;
+    font-size: 0.8em;
+    background-color: white;
 }
